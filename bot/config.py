@@ -1,6 +1,8 @@
 import os
 
 
+
+
 class Config:
 
     BOT_TOKEN = os.environ.get("BOT_TOKEN")
@@ -39,8 +41,7 @@ class Config:
 
     DEBUG = bool(os.environ.get("DEBUG"))
 
-    UPLOAD_MODE = os.environ.get("UPLOAD_MODE") or False
-    if UPLOAD_MODE:
+    if UPLOAD_MODE := os.environ.get("UPLOAD_MODE") or False:
         if UPLOAD_MODE.lower() in ["private", "public", "unlisted"]:
             UPLOAD_MODE = UPLOAD_MODE.lower()
         else:
